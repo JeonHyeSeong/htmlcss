@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+     <meta charset="UTF-8">
+     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+     <title>Document</title>
+     <style>
+          body{
+               background-color: rgb(42, 193, 188);
+          }
+          .login{
+               text-align: center;
+               margin: auto;
+               width: 500px;
+               height: 300px;
+               margin-top: 250px;
+               background-color: rgb(236, 234, 234);
+               border-radius: 10px;
+          }
+          .log{
+               margin-bottom: 20px;
+          }
+          .login>input{
+               width: 420px;
+               height: 50px;
+               outline: none;
+               background-color: white;
+               border: none;
+               border-radius: 10px;
+               padding-left: 10px;
+          }
+
+          .login>input:focus{
+               background-color: rgb(204,227,230);
+          }
+          .login>input:first-child{
+               margin-top: 20px;
+          }
+          .login>button{
+               width: 435px;
+               height: 50px;
+               background-color: rgb(42, 193, 188);
+               border: none;
+               border-radius: 10px;
+               cursor: pointer;
+               color: white;
+               font-size: 18px;
+          }
+          .pww{
+               margin: 20px;
+          }
+          .pww>a{
+               color: gray;
+          }
+     </style>
+</head>
+<body>
+     <form action="">
+          <div class="login">
+               <input type="text" name="id" id="id" placeholder="아이디를 입력하세요" class="log">
+               <input type="password" name="pw" id="pw" placeholder="비밀번호를 입력하세요" class="log">
+               <button type="submit" class="log">로그인</button>
+                    
+               <div class="pww">
+                    <a href="">비밀번호를 잊어버리셨나요</a>
+               </div>
+                    
+          </div>
+     </form>
+</body>
+</html>

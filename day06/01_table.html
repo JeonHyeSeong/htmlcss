@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+     <meta charset="UTF-8">
+     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+     <title>table 속성</title>
+     <!-- 표에 css 넣기 -->
+     <style>
+          table{
+               /* border: 1px solid black; */
+               border-collapse: collapse;
+          }
+          th, td{
+               border: 1px dashed rgb(53, 107, 255);
+               width: 150px;
+               height: 30px;
+               text-align: center;
+               border-left: none;
+               border-right: none;
+          }
+          thead{
+               background-color: aqua;
+               border-top: 2px solid rgb(53, 107, 255);
+               border-bottom: 2px solid rgb(53, 107, 255);
+          }
+          tfoot{
+               border-bottom: 2px solid rgb(53, 107, 255);
+               background-color: rgb(216, 237, 237);
+          }
+          tbody>tr:nth-child(2n){
+               background-color: rgb(216, 237, 237);
+          }
+          tbody>tr:hover{
+               background-color: coral;
+               color: white;
+          }
+     </style>
+</head>
+<body>
+     <table>
+          <thead>
+               <tr>
+                    <th>이름</th>
+                    <th>국어</th>
+                    <th>영어</th>
+               </tr>
+          </thead>
+          <tbody>
+               <tr>
+                    <td>홍길동</td>
+                    <td>70</td>
+                    <td>85</td>
+               </tr>
+               <tr>
+                    <td>김영이</td>
+                    <td>84</td>
+                    <td>39</td>
+               </tr>
+               <tr>
+                    <td>박길동</td>
+                    <td>57</td>
+                    <td>90</td>
+               </tr>
+               <tr>
+                    <td>임꺽정</td>
+                    <td>66</td>
+                    <td>73</td>
+               </tr>
+               <tr>
+                    <td>이순신</td>
+                    <td>98</td>
+                    <td>76</td>
+               </tr>
+          </tbody>
+          <tfoot>
+               <tr>
+                    <td>합계</td>
+                    <td>100</td>
+                    <td>100</td>
+               </tr>
+          </tfoot>
+     </table>
+</body>
+</html>

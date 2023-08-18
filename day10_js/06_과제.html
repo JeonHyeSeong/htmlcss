@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Document</title>
+<style>
+     table{
+          border: 1px solid black;
+          border-collapse: collapse;
+     }
+
+     tr,td{
+          border: 1px solid black;
+     }
+</style>
+</head>
+<body>
+
+     <h3>데이터 리스트</h3>
+
+          <ol>
+               <li>이름</li>
+               <li>거주지</li>
+               <li>
+               좋아하는 리스트
+               <ul>
+                    <li>1. ?</li>
+                    <li>2. ?</li>
+                    <li>3. ?</li>
+               </ul>
+               </li>
+               <li>이메일</li>
+               <li>pet 소유 여부</li>
+               <li>지금 가장 원하는 것</li>
+          </ol>
+     <h3>리스트의 구조에 따라 자바스크립트 객체를 만들어보자</h3>
+
+     <!-- 입력받을 input 구조 생성 -->
+
+     <fieldset>
+          <legend>데이터 리스트 입력</legend>
+          이름 : <input type="text" id="name"><br>
+          거주지 : <input type="text" id="addr"><br>
+          좋아하는리스트1 : <input type="text" id="favor1"><br>
+          좋아하는리스트2 : <input type="text" id="favor2"><br>
+          좋아하는리스트3 : <input type="text" id="favor3"><br>
+          이메일 : <input type="text" id="email"><br>
+          pet 소유여부 : <input type="text" id="pet"><br>
+          지금 가장 원하는 것 : <input type="text" id="wanna"><br>
+          <button type="button" onclick="getDatas()">콘솔에 출력</button>
+     </fieldset>
+     <!-- table 태그로 값 출력 (dataObj 값을 꺼내서 출력) -->
+     <h3>
+          전송받은 데이터 출력
+          <button type="button" onclick="getDatas2()">출력</button>
+     </h3>
+     <table>
+          <tr>
+               <th>이름</th>
+               <td id="name2"></td>
+          </tr>
+          <tr>
+               <th>거주지</th>
+               <td id="addr2"></td>
+          </tr>
+          <tr>
+               <th>좋아하는 리스트</th>
+               <td>
+                    <li id="favor11"></li>
+                    <li id="favor22"></li>
+                    <li id="favor33"></li>
+               </td>
+          </tr>
+          <tr>
+               <th>이메일</th>
+               <td id="email2"></td>
+          </tr>
+          <tr>
+               <th>pet 소유여부</th>
+               <td id="pet2"></td>
+          </tr>
+          <tr>
+               <th>지금 가장 원하는 것</th>
+               <td id="wanna2"></td>
+          </tr>
+     </table>
+     <script>
+          const dataObj = {
+               name:"",
+               addr:"",
+               favors:{
+                    favor1:"",
+                    favor2:"",
+                    favor3:"",
+               },
+               email:"",
+               pet:"",
+               wanna:""
+          };
+
+     // 위 html에서 받은 값을 객체에 저장 후 콘솔에 출력
+     // let 변수명;
+     // 변수명 = 값;
+
+     function getDatas(){
+          dataObj.name = document.getElementById('name').value;
+          dataObj.addr = document.getElementById('addr').value;
+          dataObj.favor1 = document.getElementById('favor1').value;
+          dataObj.favor2 = document.getElementById('favor2').value;
+          dataObj.favor3 = document.getElementById('favor3').value;
+          dataObj.email = document.getElementById('email').value;
+          dataObj.pet = document.getElementById('pet').value;
+          dataObj.wanna = document.getElementById('wanna').value;
+          console.log(dataObj)
+     }
+
+     function getDatas2(){
+          document.getElementById('name2').innerText = `${dataObj.name}`;
+          document.getElementById('addr2').innerText = `${dataObj.addr}`;
+          document.getElementById('favor11').innerText = `${dataObj.favor1}`;
+          document.getElementById('favor22').innerText = `${dataObj.favor2}`;
+          document.getElementById('favor33').innerText = `${dataObj.favor3}`;
+          document.getElementById('email2').innerText = `${dataObj.email}`;
+          document.getElementById('pet2').innerText = `${dataObj.pet}`;
+          document.getElementById('wanna2').innerText = `${dataObj.wanna}`;
+     }
+     </script>
+</body>
+</html>

@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+     <meta charset="UTF-8">
+     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+     <title>나이구하기</title>
+</head>
+<body>
+     이름 : <input type="text" id="name"><br>
+     주민번호 : <input type="text" id="rNum" placeholder="(-)필수입력"><br>
+     <button type="button" onclick="print()">확인</button>
+
+     <h3 id="ns">
+          <!-- 이름, 생년월일, 성별, 나이 -->
+     </h3>
+
+     <script>
+          // 오늘 날짜 리턴
+          let now = new Date();
+          console.log(now.getFullYear()); // 연도만 추출
+
+          function print(){
+               let name = document.getElementById('name').value;
+               let rNum = document.getElementById('rNum').value;
+               let birth = rNum.slice(0,6);
+               let gender = 0;
+
+               if(rNum.charAt(7) == 1 || rNum.charAt(7) == 3){
+                    gender = '남자';
+               }else if(rNum.charAt(7) == 2 || rNum.charAt(7) == 4){
+                    gender = '여자';
+               }else{
+                    gender = '없음';
+               }
+
+               let birth1 = parseInt(rNum.slice(0,2));
+               let age = 0;
+               if(rNum.slice(0,1) == 0 || rNum.slice(0,1) == 1){
+                    age = now.getFullYear()-(2000+birth1);
+               }else{
+                    age = now.getFullYear()-(1900+birth1);
+               }
+
+               document.getElementById('ns').innerText = 
+               `이름 : ${name}
+               생년월일 : ${birth}
+               성별 : ${gender}
+               나이 : ${age}`;
+          }
+
+          // 오늘 날짜 반환
+          let today = new Date();
+          console.log(today);
+          console.log(today.getFullYear()); // 년도
+          console.log(today.getMonth()+1); // 월 0~11월 +1
+          console.log(today.getDate()); // 일 반환 1~31
+          console.log(today.getDay()); // 요일 0(일)~6(토)
+
+          // getHours, minutes, seconds : 시분초 추출
+          let today2 = today.toLocaleDateString();
+          console.log(today2);
+          let time = today.toLocaleTimeString();
+          console.log(time);
+          console.log(today.toLocaleString());
+     </script>
+</body>
+</html>

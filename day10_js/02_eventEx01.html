@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+     <meta charset="UTF-8">
+     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+     <title>Document</title>
+</head>
+<body>
+     <fieldset>
+          <legend>국,영,수 점수의 합계,평균 출력</legend>
+          이름 : <input type="text" id="name"><br>
+          국어점수 : <input type="text" id="kor"><br>
+          영어점수 : <input type="text" id="eng"><br>
+          수학점수 : <input type="text" id="math"><br>
+          <button type="button" onclick="sum()">출력</button>
+     </fieldset>
+     <h3 id="sa"></h3>
+     <script>
+          // 이름, 국어점수, 영어점수, 수학점수를 입력받아
+          // 합계와 평균을 출력
+          function sum(){
+               let name = document.getElementById('name').value;
+               let kor = document.getElementById('kor').value;
+               let eng = document.getElementById('eng').value;
+               let math = document.getElementById('math').value;
+               console.log("입력값 > ",name,kor,eng,math);
+
+               kor = Number(kor);
+               eng = Number(eng);
+               math = Number(math);
+
+               let sa = document.getElementById('sa');
+               sa.innerText = `이름 : ${name}
+               `;
+               sa.innerText += `국어 : ${kor} 수학 : ${eng} 영어 : ${math}
+               `;
+               sa.innerText += `합계 : ${kor+eng+math}
+               `;
+               sa.innerText += `평균 : ${(kor+eng+math)/3}
+               `;
+          }
+     </script>
+</body>
+</html>

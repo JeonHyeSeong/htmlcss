@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+     <meta charset="UTF-8">
+     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+     <title>Document</title>
+</head>
+<body>
+     <h1>
+          구구단 영역(2*1=2~9*9=81)내에서 랜덤으로 문제를 내면 정답을 맞추는 로직
+     </h1>
+     <ul>
+          <li>
+               총 문제는 10문제 출제
+          </li>
+          <li>
+               문제를 풀 때 정답, 오답의 결과를 나타냄
+          </li>
+          <li>
+               총 10개의 문제중 정답률을 출력
+          </li>
+     </ul>
+     <button type="button" onclick="question()">문제출제</button>
+     <h3>
+          <ol id="quiz">
+
+          </ol>
+     </h3>
+     <button type="button" onclick="check()">정답확인</button>
+     <h3 id="result"></h3>
+
+     <script>
+          let ranNum1 = 0;
+          let ranNum2 = 0;
+          let arr = [];
+
+          function RandomNum(min, max) {
+               return Math.floor(Math.random() * (max - min + 1)) + min;
+          }
+
+          function question(){
+               const quiz = document.getElementById('quiz');
+               quiz.innerHTML = '';
+
+               for (let i = 1; i <= 10; i++) {
+                    ranNum1 = RandomNum(2, 9);
+                    ranNum2 = RandomNum(1, 9);
+
+                    gu = `${ranNum1}*${ranNum2}`;
+                    sum = `${ranNum1*ranNum2}`;
+                    arr.push(sum);
+                    console.log(sum);
+
+                    quiz.innerHTML += `<li>${ranNum1}x${ranNum2} = <input type="text" id="answer_${i}"></li>`;
+               }
+          }
+
+          
+          function check(){
+               let count = 0;
+               
+               for(let i = 1; i <= 10; i++){
+                    let u = parseInt(document.getElementById(`answer_${i}`).value);
+                    let c = parseInt(arr[i - 1]);
+                    if (u === c){
+                         document.getElementById(`answer_${i}`).style.backgroundColor = 'lightgreen';
+                         count++;
+                    }else{
+                         document.getElementById(`answer_${i}`).style.backgroundColor = 'red';
+                    }
+               }
+
+               document.getElementById('result').innerText = `정답률 ${count*10}%`
+          }
+
+     </script>
+</body>
+</html>

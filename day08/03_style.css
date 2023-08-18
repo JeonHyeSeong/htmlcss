@@ -1,0 +1,46 @@
+@import url(reset.css);
+.header{
+     width: 100%;
+     height: 60px;
+     background-color: white;
+}
+.main-img{
+     background-image: url(/image/배경.jpg);
+     width: 100%;
+     height: 100vh;
+     background-repeat: no-repeat;
+     background-position: center;
+     background-size: cover;
+}
+.box{
+     border: 1px solid white;
+     background-color: white;
+     width: 600px;
+     height: 300px;
+     text-align: center;
+     position: absolute;
+     top: 50%;
+     left: 50%;
+     transform: translate(-50%, -50%);
+}
+.box img{
+     margin-top: 20px;
+}
+.p1{
+     font-size: 25px;
+     font-weight: 700;
+     margin-top: 30px;
+}
+.load{
+     margin-top: 15px;
+}
+.p2{
+     margin-top: 20px;
+     font-size: 12px;
+}
+.p3{
+     font-size: 12px;
+     display: flex;
+     justify-content: space-around;
+     background-color: beige;
+}

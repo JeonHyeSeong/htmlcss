@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+     <meta charset="UTF-8">
+     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+     <title>Document</title>
+     <style>
+          .outer{
+               position: relative;
+               background-color: beige;
+               height: 150px;
+          }
+          .inner{
+               position: absolute;
+               width: 100px;
+               height: 100px;
+          }
+          .inner1{
+               background-color: aqua;
+               top: 25px;
+               left: 20px;
+          }
+          .inner2{
+               background-color: brown;
+               top: 25px;
+               left: 50%;
+               transform: translate(-50%);
+               /* transform: translate(x축, y축); */
+          }
+          .inner3{
+               background-color: blueviolet;
+               top: 25px;
+               right: 20px;
+          }
+     </style>
+</head>
+<body>
+     
+     <div class="outer">
+          <div class="inner inner1"></div>
+          <div class="inner inner2"></div>
+          <div class="inner inner3"></div>
+     </div>
+     
+</body>
+</html>

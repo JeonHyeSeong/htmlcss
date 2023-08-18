@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+     <meta charset="UTF-8">
+     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+     <title>이중 For문</title>
+     <style>
+          tbody{
+               font-weight: 700;
+          }
+     </style>
+</head>
+<body>
+     <h1>
+          구구단 2~9단까지 출력하기
+     </h1>
+     출력할 단 입력 : <input type="text" id="gu">
+     <button type="button" onclick="dan()">구구단 출력</button>
+
+     <table>
+          <thead>
+               <tr>
+                    <th></th>
+                    <th></th>
+               </tr>
+          </thead>
+          <tbody id="result">
+
+          </tbody>
+     </table>
+
+     <script>
+          function dan() {
+               let gu = document.getElementById('gu').value;
+               let table = document.getElementById('result');
+               table.innerHTML = '';
+
+               for (let i = 1; i <= 9; i++) {
+                    let result = gu * i;
+                    let row = `<tr>
+                                   <td>${gu} * ${i} = </td>
+                                   <td>${result}</td>
+                              </tr>`;
+                    table.innerHTML += row;
+               }
+          }
+     </script>
+</body>
+</html>

@@ -1,0 +1,112 @@
+@import url(reset.css);
+@font-face {
+     font-family: Fjalla_One;
+     src: url(/font/Fjalla_One/FjallaOne-Regular.ttf);
+}
+body{
+     font-family: Fjalla_One;
+     min-width: 900px;
+}
+a{
+     text-decoration: none;
+     color: black; 
+}
+.navbar{
+     width: 95%;
+     height: 60px;
+     margin: 0 auto;
+     display: flex;
+     flex-direction: row;
+     justify-content: space-between;
+     padding: 10px 30px;
+}
+.navbar a{
+     height: 60px;
+     line-height: 60px;
+     font-size: 30px;
+     font-weight: 700;
+}
+.navbar ul{
+     display: flex;
+     justify-content: space-between;
+}
+.navbar ul li{
+     margin: 5px 15px;
+}
+.navbar ul li a:hover{
+     color: blue;
+}
+.main-img{
+     background-image: url(/image/크림.jpg);
+     width: 100%;
+     height: 400px;
+     background-repeat: no-repeat;
+     background-position: center;
+     background-size: cover;
+     margin: 10px 0;
+}
+h1{
+     text-align: center;
+     margin: 60px auto;
+     font-size: 30px;
+     font-weight: 700;
+     color: gray;
+}
+.products{
+     width: 800px;
+     margin: 0 auto;
+     text-align: center;
+     display: flex;
+     flex-wrap: wrap;
+     flex-direction: row;
+     justify-content: center;
+}
+.products a{
+     margin: 0 20px;
+     position: relative;
+}
+.products a img{
+     width: 220px;
+     height: 220px;
+     background-color: azure;
+}
+.products a ul{
+     margin: 20px 0;
+}
+.products a ul li{
+     margin: 10px 0;
+}
+.products .text{
+     position: absolute;
+     top: 190px;
+     left: 75px;
+     font-weight: 700;
+     color: red;
+     display: none;
+}
+.products a img:hover ~.text{
+     display: block;
+}
+.footer{
+     width: 100%;
+     height: 100px;
+     font-size: 60px;
+     margin-top: 25px;
+     padding-left: 100px;
+     text-align: center;
+}
+.footer a{
+     text-decoration: none;
+     margin-right: 210px;
+}
+.footer .ins{
+     color: pink;
+     margin: 40px;
+}
+.footer .face{
+     color: blue;
+}
+.footer .twi{
+     color: cyan;
+     margin: 40px;
+}

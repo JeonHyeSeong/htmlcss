@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+     <meta charset="UTF-8">
+     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+     <title>Document</title>
+     <style>
+          @keyframes hi{
+               0%{
+                    bottom: 0%;
+               }
+               25%{
+                    bottom: 2%;
+               }
+               50%{
+                    bottom: 0%;
+               }
+               100%{
+                    bottom: 6%;
+               }
+          }
+          .ani{
+               font-size: 30px;
+               left: 10px;
+               position: absolute;
+               animation-name: hi;
+               animation-duration: 1s;
+               animation-iteration-count: infinite;
+               animation-timing-function: ease;
+          }
+     </style>
+</head>
+<body>
+     <div class="ani">hihihi</div>
+</body>
+</html>

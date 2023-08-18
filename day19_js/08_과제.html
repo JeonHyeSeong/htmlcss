@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+     <meta charset="UTF-8">
+     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+     <title>Document</title>
+</head>
+
+<body>
+     <img src="" alt="" id="img">
+
+     <script>
+          const image = ['고양이1', '고양이2', '고양이3', '고양이4'];
+          setInterval(() => ranimg(), 1000);
+
+          function ranimg() {
+               let random = Math.floor(Math.random() * 4) + 0;
+               let img = document.getElementById('img').src = `/image/${image[random]}.jpg`;
+          }
+
+     </script>
+</body>
+
+</html>

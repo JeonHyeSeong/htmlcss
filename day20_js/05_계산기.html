@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+     <meta charset="UTF-8">
+     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+     <title>Document</title>
+     <link rel="stylesheet" href="/day20_js/style.css">
+</head>
+
+<body>
+     <div class="calculator">
+          <form name="forms">
+               <input type="text" id="output" name="output">
+               <button type="button" class="clear" value="C">C</button>
+               <button type="button" class="operator" value="/">/</button>
+               <button type="button" class="number" value="1">1</button>
+               <button type="button" class="number" value="2">2</button>
+               <button type="button" value="3">3</button>
+               <button type="button" class="operator" value="*">*</button>
+               <button type="button" value="4">4</button>
+               <button type="button" value="5">5</button>
+               <button type="button" value="6">6</button>
+               <button type="button" class="operator" value="+">+</button>
+               <button type="button" value="7">7</button>
+               <button type="button" value="8">8</button>
+               <button type="button" value="9">9</button>
+               <button type="button" class="operator" value="-">-</button>
+               <button type="button" class="dot" value=".">.</button>
+               <button type="button" value="0">0</button>
+               <button type="button" class="operator result" value="=">=</button>
+          </form>
+     </div>
+
+     <script>
+          let output = document.getElementById('output');
+          let btn = document.querySelectorAll('button');
+          let number = [];
+
+          btn.forEach(button => {
+               button.addEventListener('click', () => {
+                    let btnVal = button.value;
+                    output.value += btnVal;
+
+                    if (!isNaN(Number(btnVal)) || btnVal === ".") {
+                         if (numbers.length === 0 || !isNaN(Number(numbers[numbers.length - 1]))) {
+                              numbers.push(btnVal);
+                         } else {
+                              numbers[numbers.length - 1] += btnVal;
+                         }
+                    } else if (btnVal === "=") {
+                         const result = calculate(numbers, operators);
+                         output.value = result;
+                         numbers = [];
+                         operators = [];
+                    } else if (btnVal === "C") {
+                         output.value = "";
+                         numbers = [];
+                         operators = [];
+                    } else {
+                         operators.push(btnVal);
+                    }
+               })
+          })
+
+          function calculate(numbers, operators) {
+               let result = parseFloat(numbers[0]);
+
+               for (let i = 0; i < operators.length; i++) {
+                    const operator = operators[i];
+                    const operand = parseFloat(numbers[i + 1]);
+
+                    switch (operator) {
+                         case "+":
+                              result += operand;
+                              break;
+                         case "-":
+                              result -= operand;
+                              break;
+                         case "*":
+                              result *= operand;
+                              break;
+                         case "/":
+                              result /= operand;
+                              break;
+                    }
+               }
+
+               return result;
+          }
+
+     </script>
+</body>
+
+</html>

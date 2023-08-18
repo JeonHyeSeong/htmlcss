@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+     <meta charset="UTF-8">
+     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+     <title>index</title>
+     <style>
+          h1 {
+               border: 5px solid black;
+               width: 12%;
+               height: 50px;
+               margin: 30px auto;
+               margin: 10px auto 30px;
+          }
+
+          ul {
+               text-align: center;
+          }
+
+          ul>li {
+               display: inline-block;
+               margin: 20px;
+               font-size: 30px;
+               font-weight: 700;
+               color: blue;
+          }
+
+          div {
+               text-align: center;
+          }
+
+          a {
+               text-decoration: none;
+               color: blue;
+               cursor: pointer;
+          }
+
+          #img {
+               width: 700px;
+               height: 500px;
+          }
+     </style>
+</head>
+
+<body>
+     <h1 style="text-align: center;">Travle</h1>
+     <ul>
+          <li><a id="home" onclick="clickCity(this)">Home</a></li>
+          <li><a id="seoul" onclick="clickCity(this)">Seoul</a></li>
+          <li><a id="tokyo" onclick="clickCity(this)">Tokyo</a></li>
+          <li><a id="paris" onclick="clickCity(this)">Paris</a></li>
+          <li><a id="london" onclick="img4()">London</a></li>
+     </ul>
+     <div>
+          <img src="/image/home.jpg" alt="Home" id="img">
+     </div>
+
+     <script>
+
+          const clickCity = (elem) => {
+               console.log(elem);
+               console.log(elem.id);
+               let idVal = elem.id;
+               document.getElementById('img').src = `/image/${idVal}.jpg`;
+          }
+
+          function img4() {
+               img.src = '/image/london.jpeg';
+          }
+
+     </script>
+</body>
+
+</html>

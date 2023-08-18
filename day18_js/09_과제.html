@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+
+<html lang="en">
+
+<head>
+     <meta charset="UTF-8">
+     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+     <title>Document</title>
+     <style>
+          body {
+               width: 100%;
+               text-align: center;
+          }
+
+          .box {
+               background-color: aquamarine;
+               width: 500px;
+               margin: auto;
+               text-align: center;
+               padding: 30px;
+          }
+
+          input {
+               width: 400px;
+               height: 30px;
+               outline: none;
+          }
+
+          button {
+               width: 50px;
+               height: 30px;
+          }
+
+          #list {
+               width: 520px;
+               position: relative;
+               list-style: none;
+               line-height: 40px;
+               margin: auto;
+               font-size: 25px;
+               font-weight: 500;
+               text-align: left;
+               background-color: rgb(139, 194, 243);
+          }
+
+          #list>li {
+               display: flex;
+               justify-content: space-between;
+               align-items: center;
+               padding-right: 10px;
+          }
+
+          .delete {
+               cursor: pointer;
+          }
+     </style>
+</head>
+
+<body>
+     <h1>여행 준비물 점검 목록</h1>
+     <div class="box">
+          <input type="text" id="inputlist">
+          <button type="button" id="addBtn">추가</button>
+     </div>
+     <div>
+          <ul id="list"></ul>
+     </div>
+     <script>
+          const item = [];
+          const input = document.getElementById("inputlist");
+          const addButton = document.getElementById("addBtn");
+          const list = document.getElementById("list");
+          addButton.addEventListener("click", () => {
+               if (input.value !== "") {
+                    item.push(input.value);
+                    printlist();
+               }
+          });
+          function printlist() {
+               list.innerHTML = "";
+               for (let i = 0; i < item.length; i++) {
+                    list.innerHTML += `<li class="itemli">${item[i]}<span id="delete_${i}" class="delete" onclick="dellist(${i})">X</span></li>`;
+               }
+          }
+          function dellist(index) {
+               item.splice(index, 1);
+               printlist();
+          }
+     </script>
+</body>
+
+</html>

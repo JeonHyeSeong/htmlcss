@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+     <meta charset="UTF-8">
+     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+     <title>Document</title>
+</head>
+
+<body>
+     <button type="button" id="btn1">Li Tag 한번에 추가하기</button>
+     <button type="button" id="btn2">Li Tag 하나씩 추가하기</button>
+     <button type="button" id="btn3">Li Tag 한번에 추가하기</button>
+     <button type="button" id="btn4">Li Tag 하나씩 추가하기</button>
+     <ul id="li1"></ul>
+     <hr>
+     <ol id="li2"></ol>
+     <hr>
+     <ul id="li3"></ul>
+     <hr>
+     <ol id="li4"></ol>
+
+     <script>
+          document.getElementById('btn1').addEventListener('click', () => {
+               let str = `<li>HTML</li>`;
+               str += `<li>CSS</li>`;
+               str += `<li>javascript</li>`;
+               str += `<li>SQL</li>`;
+               document.getElementById('li1').innerHTML = str;
+          })
+
+          const datas = ['HTML', 'CSS', 'javascript', 'SQL'];
+          let index = 0;
+          document.getElementById('btn2').addEventListener('click', () => {
+               if (index < datas.length) {
+                    let str = `<li>${datas[index]}</li>`
+                    document.getElementById('li2').innerHTML += str;
+                    index++;
+               }
+          })
+
+          // appendchild 사용
+          document.getElementById('btn3').addEventListener('click', () => {
+               let ul = document.getElementById('li3');
+               datas.forEach((elem) => {
+                    let li = document.createElement('li'); // str = `<li></li>`;
+                    li.innerText = elem; // str = `<li>${elem}</li>`;
+                    ul.appendChild(li); // innerHTML = str;
+               })
+          })
+
+          let idx = 0;
+          const ol = document.getElementById('li4');
+          document.getElementById('btn4').addEventListener('click', () => {
+               if (idx < datas.length) {
+                    let li = document.createElement('li');
+                    li.innerText = datas[idx];
+                    ol.appendChild(li);
+                    idx++;
+               }
+          })
+     </script>
+</body>
+
+</html>

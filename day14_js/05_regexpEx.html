@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+     <meta charset="UTF-8">
+     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+     <title>정규표현식</title>
+     <style>
+          .green{
+               color: green;
+          }
+          .red{
+               color: red;
+          }
+     </style>
+</head>
+<body>
+     <!-- 
+          input 파일에 파일명.확장자를 입력하여 전송 버튼을 누르면
+          이미지 파일인지 검사하여
+          이미지 파일이면
+          '정상파일입니다.' <초록색>
+          이미지 파일이 아니면
+          '이미지 파일만 가능합니다.' <빨간색>
+          출력하기
+          이미지파일 : jpg, png, jpeg, gif
+          - 대문자로 된 확장자명도 판단 가능해야 함.
+      -->
+      <input type="text" id="fileName">
+      <button type="button" id="subBtn">전송</button>
+      <h3 id="result"></h3>
+
+      <script>
+          // let file2="";
+          
+          function imgeFileValid(image){
+               // 이미지 파일명을 파라미터로 입력받아서 확장자를 체크
+               // 이미지 파일 확장자가 맞다면 true, 아니면 false를 리턴
+               let imageFileName = image.toLowerCase();
+               console.log(image);
+               console.log(imageFileName);
+               return imageFileName.endsWith('.png') ? true :
+               imageFileName.endsWith('.jpg') ? true :
+               imageFileName.endsWith('.jpeg') ? true :
+               imageFileName.endsWith('.gif') ? true : false;
+
+               
+               // file2 = document.getElementById('file').value;
+               // console.log(file2);
+               // if(file2.match(/(jpg|png|jpeg|gif)$/i)){
+                    //      document.getElementById('result').innerText = '정상파일입니다.';
+                    //      document.getElementById('result').style.color = 'green';
+                    // }else{
+                         //      document.getElementById('result').innerText = '이미지 파일만 가능합니다.';
+                         //      document.getElementById('result').style.color = 'red';
+                         // }
+          }
+          document.getElementById('subBtn').addEventListener('click', ()=>{
+          let fileName = document.getElementById('fileName').value;
+          let imgTrue = `<span class="green">정상파일입니다.</span>`;
+          let imgFalse = `<span class="red">이미지 파일만 가능합니다.</span>`;
+          document.getElementById('result').innerHTML =
+          imgeFileValid(fileName) ? imgTrue : imgFalse;
+          })
+      </script>
+</body>
+</html>

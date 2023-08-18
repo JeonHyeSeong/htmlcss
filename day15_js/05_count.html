@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+     <meta charset="UTF-8">
+     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+     <title>count 만들기</title>
+</head>
+<body>
+     <!-- 
+          button을 2개 준비
+          + / -
+            0  => h1  최소값 0
+      -->
+      <h1 id="result">0</h1>
+      <div>
+           <button type="button" onclick="plus()">+</button>
+           <button type="button" onclick="minus()">-</button>
+      </div>
+
+      <script>
+          let count = 0;
+
+          function plus(){
+               count++;
+               document.getElementById('result').innerText = count;
+          }
+
+          function minus(){
+               if(count > 0){
+                    count--;
+                    document.getElementById('result').innerText = count;
+               }
+          }
+      </script>
+</body>
+</html>

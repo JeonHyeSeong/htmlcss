@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+
+<html lang="en">
+
+
+<head>
+     <meta charset="UTF-8">
+     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+     <title>Document</title>
+     <link href="https://fonts.googleapis.com/css2?family=Rubik+Wet+Paint&display=swap" rel="stylesheet">
+     <style>
+          body {
+               width: 100%;
+               display: flex;
+               flex-direction: column;
+               text-align: center;
+               margin: auto;
+               background-color: bisque;
+          }
+
+          .h1 {
+               font-size: 100px;
+               font-family: 'Rubik Wet Paint', cursive;
+          }
+
+          .h1:hover {
+               color: red;
+          }
+
+          .h3 {
+               font-size: 30px;
+          }
+
+          .container {
+               display: flex;
+               justify-content: space-between;
+               padding: 20px;
+          }
+
+          .box {
+               padding: 20px;
+               margin: 100px;
+               text-align: left;
+          }
+
+          .box>h1 {
+               font-size: 82px;
+               font-family: 'Rubik Wet Paint', cursive;
+          }
+
+          .box>h1:hover {
+               color: red;
+          }
+     </style>
+
+</head>
+
+<body>
+     <h1 id="super" class="h1"></h1>
+     <h3 id="home" class="h3"></h3>
+
+     <div class="container">
+          <div class="box" id="box1">
+               <h1 id="mole"></h1>
+               <p id="me1"></p>
+               <ul id="list1"></ul>
+          </div>
+
+          <div class="box" id="box2">
+               <h1 id="mada"></h1>
+               <p id="me2"></p>
+               <ul id="list2"></ul>
+          </div>
+
+          <div class="box" id="box3">
+               <h1 id="eter"></h1>
+               <p id="me3"></p>
+               <ul id="list3"></ul>
+          </div>
+     </div>
+
+     <script>
+          fetch('https://mdn.github.io/learning-area/javascript/oojs/json/superheroes.json')
+               .then(resp => resp.json())
+               .then(json => {
+                    document.getElementById('super').innerText = json.squadName;
+                    document.getElementById('home').innerText = `Hometown: ${json.homeTown} // Formed: ${json.formed}`
+                    const mole = json.members[0];
+                    document.getElementById('mole').innerText = mole.name;
+                    document.getElementById('me1').innerText =
+                         `secret Identity: ${mole.secretIdentity}
+                    age: ${mole.age}`;
+                    document.getElementById('list1').innerHTML += `<p>Superpowers:</p>`;
+                    mole.powers.forEach(power => {
+                         document.getElementById('list1').innerHTML += `<li>${power}</li>`;
+                    });
+                    const mada = json.members[1];
+                    document.getElementById('mada').innerText = mada.name;
+                    document.getElementById('me2').innerText =
+                         `secret Identity: ${mada.secretIdentity}
+                    age: ${mada.age}`;
+                    document.getElementById('list2').innerHTML += `<p>Superpowers:</p>`;
+                    mada.powers.forEach(power => {
+                         document.getElementById('list2').innerHTML += `<li>${power}</li>`;
+                    });
+                    const eter = json.members[2];
+                    document.getElementById('eter').innerText = eter.name;
+                    document.getElementById('me3').innerText =
+                         `secret Identity: ${eter.secretIdentity}
+                    age: ${eter.age}`;
+                    document.getElementById('list3').innerHTML += `<p>Superpowers:</p>`;
+                    eter.powers.forEach(power => {
+                         document.getElementById('list3').innerHTML += `<li>${power}</li>`;
+                    });
+               })
+     </script>
+
+</body>
+
+</html>
